@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="card-header">
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Search by code, then get live rates</p>
+      </header>
+      <form>
+        <div class="amount">
+          <label for="amount-input">Amount</label>
+          <input
+            id="amount-input"
+            value="1"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="converter-row">
+          <div class="currency-picker" data-side="from">
+            <label for="from-currency-input">From</label>
+            <div class="picker-shell">
+              <img
+                class="flag"
+                src="https://flagsapi.com/US/flat/64.png"
+                alt=""
+              />
+              <div class="input-shell">
+                <input
+                  id="from-currency-input"
+                  type="text"
+                  class="currency-input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  maxlength="5"
+                  placeholder="USD"
+                  aria-label="From currency code"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                />
+                <ul
+                  class="suggestions"
+                  role="listbox"
+                  hidden
+                  id="from-suggestions"
+                ></ul>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="swap-btn"
+            aria-label="Swap from and to currencies"
+          >
+            <svg
+              class="swap-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 9h11m0 0l-3-3m3 3l-3 3" />
+              <path d="M20 15H9m0 0l3 3m-3-3l3-3" />
+            </svg>
+          </button>
+
+          <div class="currency-picker" data-side="to">
+            <label for="to-currency-input">To</label>
+            <div class="picker-shell">
+              <img
+                class="flag"
+                src="https://flagsapi.com/PK/flat/64.png"
+                alt=""
+              />
+              <div class="input-shell">
+                <input
+                  id="to-currency-input"
+                  type="text"
+                  class="currency-input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  maxlength="5"
+                  placeholder="PKR"
+                  aria-label="To currency code"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                />
+                <ul
+                  class="suggestions"
+                  role="listbox"
+                  hidden
+                  id="to-suggestions"
+                ></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="msg" role="status">Select currencies and tap convert</div>
+        <button type="submit" class="submit-btn">Get exchange rate</button>
+      </form>
+    </div>
+    <script src="codes.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
